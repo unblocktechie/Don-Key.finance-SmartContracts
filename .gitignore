@@ -1,0 +1,11 @@
+node_modules
+dist`
+
+*.log
+.idea
+.DS_Store
+
+build
+.secret
+cache
+artifacts
