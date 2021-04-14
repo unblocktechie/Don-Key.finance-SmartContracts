@@ -25,7 +25,6 @@ contract POOL is Controller{
     address poolOwner;
     Strategy strategyInstance;
     bool private invested;
-    string private farmerName;
     address private farmer;
     address private teamAddress = 0x8345F3AFa13a2ACC4fCd55A173eA21078aD958e8;
     uint16 constant FARMER_REWARD = 5; // 5% of profit
@@ -34,23 +33,12 @@ contract POOL is Controller{
     mapping (address => uint256) private liquidity;
 
 
-    constructor (string memory _farmerName)
+    constructor ()
         public payable
     {
         admins[msg.sender]=true;
-        farmerName=_farmerName;
         farmer=msg.sender;
         invested=false;
-    }
-
-    /**
-     * @dev Get farmerName of the pool
-     */
-    function getFarmername()
-        external view
-        returns (string memory)
-    {
-        return farmerName;
     }
 
     /**
